@@ -1,0 +1,11 @@
+/*--Custom Vars--*/
+:root {
+  --cru-yellow: #FFCF07;
+  --dark-gray: #383F43;
+  --medium-gray: #9C9FA1;
+  --light-gray: #EBECEC;
+  --tooltip-color: var(--dark-gray);
+}
+div {
+	color: red;
+}
