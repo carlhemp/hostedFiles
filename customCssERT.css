@@ -7,27 +7,48 @@
   --tooltip-color: var(--dark-gray);
 }
 radio-question {
-  color:red;
-  display: block;
+  display: flex;
 }
 radio-question .radio {
-  display: inline-block;
-  margin-left: 2rem;
   position: relative;
+  flex: none;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-top: 4rem;
 }
 radio-question .radio:first-child {
-  width: 10rem;
   text-align: right;
+  flex: auto;
+}
+radio-question .radio:first-child strong {
+  padding-right: 10px;
 }
 radio-question .radio:nth-last-child(2) {
-  width: 13rem;
-  color: blue;
-}
-radio-question .radio label {
+  flex: auto;
 }
 radio-question .radio strong {
   position: absolute;
   top: 1rem;
   left: 0;
+  width: 100%
+}
+.reg-type-select .btn {
+  color: #00a651;
+  width: 11rem;
+}
+.reg-type-select .btn:active {
+  color: #449d44;
+}
+.reg-type-select .btn:before {
+  display: block;
+  position:absolute;
+  content: "Start Survey";
+  color:white; 
+}
+
+@media only screen and (max-width: 600px) {
+  radio-question .radio {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
