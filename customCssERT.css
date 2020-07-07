@@ -45,7 +45,34 @@ radio-question .radio strong {
   content: "Start Survey";
   color:white; 
 }
-
+/*Get rid of summary section  */
+main > div:nth-child(2) > div > section:nth-child(2) {
+  display:none;
+}
+/*Change Registration window to survey window  */
+main > div > div > section:nth-child(2) > div:nth-child(5) > h2 {
+  color: #fafde8;
+}
+main > div > div > section:nth-child(2) > div:nth-child(5) > h2:before {
+  content: "Survey Window";  
+  color: #00a651;
+}
+/*Change Registration review to survey review  */
+body > main > div:nth-child(2) > div > section:nth-child(1) > h2 {
+  color:white;
+}
+body > main > div:nth-child(2) > div > section:nth-child(1) > h2:before {
+  content: "Survey Review";  
+  color: #00a651;
+}
+/*Change registration not complete to survey not complete  */
+body > main > div.row.spacing-below-md > div > section > h3 {
+  color: white;
+}
+body > main > div.row.spacing-below-md > div > section > h3:before {
+  content: "Your survey is not complete...";
+  color: black;
+}
 @media only screen and (max-width: 600px) {
   radio-question .radio {
     margin-left: 10px;
