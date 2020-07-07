@@ -6,6 +6,28 @@
   --light-gray: #EBECEC;
   --tooltip-color: var(--dark-gray);
 }
-div {
-	/*color: red;*/
+radio-question {
+  color:red;
+  display: block;
+}
+radio-question .radio {
+  display: inline-block;
+  margin-left: 2rem;
+  position: relative;
+  padding-top: 4rem;
+}
+radio-question .radio:first-child {
+  width: 10rem;
+  text-align: right;
+}
+radio-question .radio:nth-last-child(2) {
+  width: 13rem;
+  color: blue;
+}
+radio-question .radio label {
+}
+radio-question .radio strong {
+  position: absolute;
+  top: 1rem;
+  left: 0;
 }
