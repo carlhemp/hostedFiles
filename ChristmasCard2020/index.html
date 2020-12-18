@@ -14,17 +14,15 @@
 		</span>
 		<div id="flipbook-container" style="flex: 100px 3 1; display: flex; flex-direction: column;">
 			<div id="flipbook">
-				<div><img src="CCF12182020-1.jpg" width="100%"></div>
-				<div><img src="CCF12182020-2.jpg" width="100%"></div>
-				<div><img src="CCF12182020-3.jpg" width="100%"></div>
-				<div><img src="CCF12182020-4.jpg" width="100%"></div>
+				<div><img id="one" width="100%"></div>
+				<div><img id="two" width="100%"></div>
+				<div><img id="three" width="100%"></div>
+				<div><img id="four" width="100%"></div>
 			</div>
 			<div style="display: flex;"><span onclick="$('#flipbook').turn('previous');" style="font-size: 2rem; cursor: pointer"> ◄ </span><span id="pageNum" style="margin: 0 auto 0 auto; font-size: 1.5rem; padding-top: .5rem;">1</span><span onclick="$('#flipbook').turn('next');" style="font-size: 2rem; cursor: pointer"> ► </span></div>
 		</div>
 
-    <div style="background-color: green;">
-			<div id="showPortrait">Looks better in landscape orientation</div>
-		</div>
+		<span style="position:absolute; top: 0; right: 0; margin: 1em; font-size: 2rem; cursor: pointer;" onclick="loadImages();">↻</span>
 
 		<script type="text/javascript">
 			$("#flipbook").turn({
@@ -33,12 +31,10 @@
 			$(window).resize(function() {
 				let view_width = Math.min($(window).width() - 50, 1000);
 				if(window.innerHeight > window.innerWidth){
-			    $('#showPortrait').addClass('show');
 			    $("#flipbook").turn("display", "single");
 					$("#flipbook").turn("size", view_width, view_width*.6);
 				}
 				else {
-			    $('#showPortrait').removeClass('show');
 			    $("#flipbook").turn("display", "double");
 					$("#flipbook").turn("size", view_width, view_width*.3);
 				}
@@ -47,6 +43,29 @@
 			  $('#pageNum').text(page);
 			});
 			$(window).resize();
+			let setNum = getRandomInt(5);
+
+			function loadImages(){
+				let newSetNum = getRandomInt(5);
+				if(newSetNum == setNum){
+					newSetNum = getRandomInt(5);
+					if(newSetNum == setNum){
+						newSetNum = getRandomInt(5);
+					}
+				}
+				setNum = newSetNum;
+	      console.log(setNum);
+	      $('#one')[0].src = setNum + '-1.jpg';
+	      $('#two')[0].src = setNum + '-2.jpg';
+	      $('#three')[0].src = setNum + '-3.jpg';
+	      $('#four')[0].src = setNum + '-4.jpg';
+			}
+
+			function getRandomInt(max) {
+			  return Math.floor(Math.random() * Math.floor(max));
+			}	
+			loadImages();
+      	
 		</script>
 	</body>
 </html>

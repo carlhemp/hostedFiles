@@ -12,18 +12,6 @@ body{
 	width: min-content;
 	overflow: hidden;
 }
-#showPortrait {
-	display: none;
-	width: max-content;
-	margin: 1rem auto 1rem auto;
-}
-/** Phone in portrait and landscape**/
-@media only screen and (max-width: 639px),
-only screen and (max-height: 500px) {
-	#showPortrait.show {
-		display: block;
-	}
-}
 .flipbook-viewport{
 	overflow:hidden;
 	width:100%;
