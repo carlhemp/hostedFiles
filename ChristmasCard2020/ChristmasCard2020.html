@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="turn.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="basic.css">
+
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body style="display:flex; height: 100vh; flex-direction: column;">
+		<span style="flex: 25px 1 1;">
+			<h1 style="font-family: cursive; margin: 1em auto 0 auto; width: max-content;">Merry Christmas!</h1>
+			<h3 style="font-family: cursive; font-weight: lighter; margin: 0 auto 1em auto; width: max-content;">From the Hempels</h3>
+		</span>
+		<div id="flipbook-container" style="flex: 100px 3 1;">
+			<div id="flipbook">
+				<div><img src="CCF12182020-1.jpg" width="100%"></div>
+				<div><img src="CCF12182020-2.jpg" width="100%"></div>
+				<div><img src="CCF12182020-3.jpg" width="100%"></div>
+				<div><img src="CCF12182020-4.jpg" width="100%"></div>
+			</div>
+		</div>
+
+    <div style="background-color: green;">
+			<div id="showPortrait">Looks better in landscape orientation</div>
+		</div>
+
+		<script type="text/javascript">
+			$("#flipbook").turn({
+				autoCenter: false
+			});
+			$(window).resize(function() {
+				$("#flipbook").turn("size", $(window).width() - 50, $(window).width()*.3);
+				if(window.innerHeight > window.innerWidth){
+			    $('#showPortrait').addClass('show');
+				}
+				else {
+			    $('#showPortrait').removeClass('show');
+				}
+			});
+			$(window).resize();
+		</script>
+	</body>
+</html>
