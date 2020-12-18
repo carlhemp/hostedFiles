@@ -12,13 +12,14 @@
 			<h1 style="font-family: cursive; margin: 1em auto 0 auto; width: max-content;">Merry Christmas!</h1>
 			<h3 style="font-family: cursive; font-weight: lighter; margin: 0 auto 1em auto; width: max-content;">From the Hempels</h3>
 		</span>
-		<div id="flipbook-container" style="flex: 100px 3 1;">
+		<div id="flipbook-container" style="flex: 100px 3 1; display: flex; flex-direction: column;">
 			<div id="flipbook">
 				<div><img src="CCF12182020-1.jpg" width="100%"></div>
 				<div><img src="CCF12182020-2.jpg" width="100%"></div>
 				<div><img src="CCF12182020-3.jpg" width="100%"></div>
 				<div><img src="CCF12182020-4.jpg" width="100%"></div>
 			</div>
+			<div style="display: flex;"><span onclick="$('#flipbook').turn('previous');" style="font-size: 2rem; cursor: pointer"> 🡄 </span><span id="pageNum" style="margin: 0 auto 0 auto; font-size: 1.5rem; padding-top: .5rem;">1</span><span onclick="$('#flipbook').turn('next');" style="font-size: 2rem; cursor: pointer"> 🡆 </span></div>
 		</div>
 
     <div style="background-color: green;">
@@ -30,13 +31,20 @@
 				autoCenter: false
 			});
 			$(window).resize(function() {
-				$("#flipbook").turn("size", $(window).width() - 50, $(window).width()*.3);
+				let view_width = Math.min($(window).width() - 50, 1000);
 				if(window.innerHeight > window.innerWidth){
 			    $('#showPortrait').addClass('show');
+			    $("#flipbook").turn("display", "single");
+					$("#flipbook").turn("size", view_width, view_width*.6);
 				}
 				else {
 			    $('#showPortrait').removeClass('show');
+			    $("#flipbook").turn("display", "double");
+					$("#flipbook").turn("size", view_width, view_width*.3);
 				}
+			});
+			$("#flipbook").bind("turned", function(event, page, view) {
+			  $('#pageNum').text(page);
 			});
 			$(window).resize();
 		</script>
