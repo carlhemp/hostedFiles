@@ -7,20 +7,47 @@
 
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body style="display:flex; height: 100vh; flex-direction: column;">
-		<span style="flex: 25px 1 1; position: relative;">
+	<body>
+		<div style="position: relative;">
 			<h1 style="font-family: cursive; margin: 1em auto 0 auto; width: max-content;">Merry Christmas!</h1>
 			<h3 style="font-family: cursive; font-weight: lighter; margin: 0 auto 1em auto; width: max-content;">From the Hempels</h3>
-			<span style="position:absolute; bottom: 0; right: max((100vw - 1000px - 2em)/2, 0px); margin: 1em; font-size: 2rem; cursor: pointer;" onclick="loadImages();">↻</span>
-		</span>
-		<div id="flipbook-container" style="flex: 100px 3 1; display: flex; flex-direction: column;">
+			<span style="position:absolute; bottom: 0; right: max((100vw - 1000px - 2em)/2, 0px); margin: 0 1em; font-size: 2rem; cursor: pointer;" onclick="loadImages();">↻</span>
+		</div>
+		<div id="flipbook-container">
 			<div id="flipbook">
 				<div><img id="one" width="100%"></div>
 				<div><img id="two" width="100%"></div>
 				<div><img id="three" width="100%"></div>
 				<div><img id="four" width="100%"></div>
 			</div>
-			<div style="display: flex;"><span onclick="$('#flipbook').turn('previous');" style="font-size: 2rem; cursor: pointer"> ◄ </span><span id="pageNum" style="margin: 0 auto 0 auto; font-size: 1.5rem; padding-top: .5rem;">1</span><span onclick="$('#flipbook').turn('next');" style="font-size: 2rem; cursor: pointer"> ► </span></div>
+			<div style="display: flex;"><span id="left" class="hide" onclick="$('#flipbook').turn('previous');" style="font-size: 2rem; cursor: pointer"> ◄ </span><span id="pageNum" style="margin: 0 auto 0 auto; font-size: 1.5rem; padding-top: .5rem;">1</span><span id="right" onclick="$('#flipbook').turn('next');" style="font-size: 2rem; cursor: pointer"> ► </span></div>
+		</div>
+		<div style="width: min(100vw, 1000px); margin: 0 auto; font-size: 1rem; padding: 0 2rem; ">
+			<p>Growing up, my family (Carl) would make a handmade Christmas card, each individually crayon-colored, that we would send out with our Christmas picture and a family newsletter. It's something that I always enjoyed as a Christmas tradition, and hoped to someday do with my family.</p>
+			<p>This spring I read through "The 3D Gospel: Ministry in Guilt, Shame, and Fear Cultures" by Jayson Georges.  In his outline, western culture tends to be guilt-based, eastern culture tends to be shame-based, and tribal cultures tend to be fear-based cultures. Each culture and individual of the world operates out of a combination of these (and probably other) worldviews.</p>
+			<p style="margin-bottom: 0;">As I was reading and thinking about how to put together our card I saw a theme of God's redemption of mankind portrayed through His covering our brokenness and sin throughout scripture.</p>
+			<ul style="margin-top: 0;">
+				<li>
+				  God covered Adam and Eve's shame when they sinned in the garden. 
+				</li>
+				<li>
+					the people of Israel experienced God's power overcoming (covering) fear in their weakness before Pharaoh. 
+				</li>
+				<li>
+				in Jesus' coming to earth, and especially His death on the cross, we clearly see God’s covering of our guilt.
+				</li>
+			</ul>
+			<p>God's work in redemption, and Jesus' life and death, accomplished far more than our salvation from guilt.  It restores us into a right relationship in the family of God!  Freed from all shame we acquire honor as his children, and access to the throne of God.</p>
+
+			<p>
+				From all of us to you, 
+				Merry Christmas and may God bless you! 
+				<span style="font-family: cursive; display: block;">
+					Carl, Bridget, and Henry
+				</span>
+			<p>
+				P.S. We both colored, I worked on layout, Bridget did the artwork (no way I can make something this nice!), and Henry mostly just slept :-D.
+			</p>
 		</div>
 
 		<script type="text/javascript">
@@ -38,8 +65,15 @@
 					$("#flipbook").turn("size", view_width, view_width*.3);
 				}
 			});
-			$("#flipbook").bind("turned", function(event, page, view) {
+			$("#flipbook").bind("turning", function(event, page, view) {
 			  $('#pageNum').text(page);
+			  $('.hide').removeClass('hide');
+			  if(page == 1){
+          $('#left').addClass('hide');
+			  }
+			  if(page == 4){
+			  	$('#right').addClass('hide');
+			  }
 			});
 			$(window).resize();
 			let setNum = getRandomInt(5);
