@@ -16,6 +16,7 @@ body{
 }
 #buttons {
 	z-index: 1000;
+  user-select: none;
 }
 #buttons > button:focus {
 	transition: transform .2s;
