@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="turn.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="basic.css">
+
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div style="position: relative; padding-left: 1rem; padding-right: 1rem;text-align: center;">
+			<h1 style="font-family: 'Source Sans Pro', sans-serif; margin: 1em auto 0 auto; font-size: 3rem; font-weight: 600; display:inline-block; text-align: left;">Headquarters Summer Mission 2021</h1>
+		</div>
+		<div id="flipbook-container">
+			<div id="flipbook">
+				<div><img src="02.jpg" width="100%"></div>
+				<div><img src="03.jpg" width="100%"></div>
+				<div><img src="04.jpg" width="100%"></div>
+
+				<div><img src="05.jpg" width="100%"></div>
+				<div><img src="06.jpg" width="100%"></div>
+				<div><img src="07.jpg" width="100%"></div>
+				<div><img src="08.jpg" width="100%"></div>
+
+				<div><img src="09.jpg" width="100%"></div>
+				<div><img src="10.jpg" width="100%"></div>
+				<div><img src="11.jpg" width="100%"></div>
+				<div><img src="12.jpg" width="100%"></div>
+				<div><img src="01.jpg" width="100%"></div>
+			</div>
+			<div style="display: flex; position: fixed; left:0; right:0; bottom:25vh; top:25vh" id="buttons">
+				<div id="left" class="hide" onclick="$('#flipbook').turn('previous');" style="font-size: 2rem; cursor: pointer; width: 2rem; line-height: 50vh; text-align: center; margin-left: 1rem;"> ◄ </div>
+				<div style="margin-right:auto; margin-left:auto"></div>
+				<div id="right" onclick="$('#flipbook').turn('next');" style="font-size: 2rem; cursor: pointer; width: 2rem; line-height: 50vh; text-align: center; margin-right: 1rem;"> ► </div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$("#flipbook").turn({
+				autoCenter: false
+			});
+			$(window).resize(function() {
+				let view_width = Math.min($(window).width() - 50, 1000);
+				let view_height = $(window).height() - 150;
+
+				if(window.innerHeight > window.innerWidth){
+			    $("#flipbook").turn("display", "single");
+					$("#flipbook").turn("size", view_width, Math.max(view_height,view_width*1.55));
+				}
+				else {
+			    $("#flipbook").turn("display", "double");
+					$("#flipbook").turn("size", view_width, Math.max(view_height,view_width/2*1.55));
+				}
+			});
+			$("#flipbook").bind("turning", function(event, page, view) {
+			  $('#pageNum').text(page);
+			  $('.hide').removeClass('hide');
+			  if(page == 1){
+          $('#left').addClass('hide');
+			  }
+			  if(page == 12){
+			  	$('#right').addClass('hide');
+			  }
+			});
+			$(window).resize();
+
+		</script>
+	</body>
+</html>
