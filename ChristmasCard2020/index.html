@@ -9,8 +9,8 @@
 	</head>
 	<body>
 		<div style="position: relative;">
-			<h1 style="font-family: 'Bradley Hand', 'Brush Script MT', 'Luminari', cursive; margin: 1em auto 0 auto; width: max-content;">Merry Christmas!</h1>
-			<h3 style="font-family: 'Bradley Hand', 'Brush Script MT', 'Luminari', cursive; font-weight: lighter; margin: 0 auto 1em auto; width: max-content;">From the Hempels</h3>
+			<h1 style="font-family: 'Bradley Hand', 'Brush Script MT', 'Luminari', cursive; margin: 1em auto 0 auto; width: max-content; font-size:2rem;">Merry Christmas!</h1>
+			<h2 style="font-family: 'Bradley Hand', 'Brush Script MT', 'Luminari', cursive; font-weight: lighter; margin: 1rem auto 0 auto; width: max-content; font-size: 1.5rem">From the Hempels</h2>
 			<span style="position:absolute; bottom: 0; right: max((100vw - 1000px - 2em)/2, 0px); margin: 0 1em; font-size: 2rem; cursor: pointer;" onclick="loadImages();">↻</span>
 		</div>
 		<div id="flipbook-container">
@@ -42,7 +42,7 @@
 			<p>
 				From all of us to you, 
 				Merry Christmas and may God bless you! 
-				<span style="font-family: 'Bradley Hand', 'Brush Script MT', 'Luminari', cursive; display: block;">
+				<span style="font-family: 'Bradley Hand', 'Brush Script MT', 'Luminari', cursive; display: block; font-size: 30px;">
 					Carl, Bridget, and Henry
 				</span>
 			<p>
@@ -52,18 +52,12 @@
 
 		<script type="text/javascript">
 			$("#flipbook").turn({
-				autoCenter: false
+				autoCenter: true
 			});
 			$(window).resize(function() {
 				let view_width = Math.min($(window).width() - 50, 1000);
-				if(window.innerHeight > window.innerWidth){
-			    $("#flipbook").turn("display", "single");
-					$("#flipbook").turn("size", view_width, view_width*.6);
-				}
-				else {
-			    $("#flipbook").turn("display", "double");
-					$("#flipbook").turn("size", view_width, view_width*.3);
-				}
+		    $("#flipbook").turn("display", "single");
+				$("#flipbook").turn("size", view_width, view_width*.6);
 			});
 			$("#flipbook").bind("turning", function(event, page, view) {
 			  $('#pageNum').text(page);
