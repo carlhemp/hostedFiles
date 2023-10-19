@@ -1,0 +1,25 @@
+{
+    "name": "Concatenated Text Table",
+    "logoUrl": "https://raw.githubusercontent.com/googledatastudio/community-visualizations/master/docs/codelab/img/table-chart.png",
+    "organization": "Carl Hempel",
+    "organizationUrl": "https://github.com/carlhemp/",
+    "termsOfServiceUrl": "https://url",
+    "supportUrl": "https://url",
+    "packageUrl": "https://url",
+    "privacyPolicyUrl": "https://url",
+    "description": "Table that concatenates grouped content",
+    "devMode": true,
+    "components": [
+        {
+            "id": "ConcatTextTable",
+            "name": "Concatenated Text Table",
+            "iconUrl": "https://raw.githubusercontent.com/googledatastudio/community-visualizations/master/docs/codelab/img/table-chart.png",
+            "description": "A simple text concatenated table chart.",
+            "resource": {
+                "js": "https://carlhemp.github.io/hostedFiles/LookerStudioConcatTextTable.js",
+                "config": "https://carlhemp.github.io/hostedFiles/LookerStudioConcatTextTable.json",
+                "css": "https://carlhemp.github.io/hostedFiles/LookerStudioConcatTextTable.css"
+            }
+        }
+    ]
+}
