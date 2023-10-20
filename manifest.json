@@ -16,9 +16,9 @@
             "iconUrl": "https://raw.githubusercontent.com/googledatastudio/community-visualizations/master/docs/codelab/img/table-chart.png",
             "description": "A simple text concatenated table chart.",
             "resource": {
-                "js": "https://carlhemp.github.io/hostedFiles/LookerStudioConcatTextTable.js",
-                "config": "https://carlhemp.github.io/hostedFiles/LookerStudioConcatTextTable.json",
-                "css": "https://carlhemp.github.io/hostedFiles/LookerStudioConcatTextTable.css"
+                "js": "gs://concattexttable/LookerStudioConcatTextTable.js",
+                "config": "gs://concattexttable/LookerStudioConcatTextTable.json",
+                "css": "gs://concattexttable/LookerStudioConcatTextTable.css"
             }
         }
     ]

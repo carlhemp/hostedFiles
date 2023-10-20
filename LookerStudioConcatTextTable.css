@@ -1,10 +1,17 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 12px;
+    line-height: 12px;
 }
 
 tr {
     border-bottom: 1pt solid #d1d1d1;
+}
+
+thead {
+    position: sticky;
+    top: 0;
 }
 
 th, td {
