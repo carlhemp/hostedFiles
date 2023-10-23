@@ -69,7 +69,7 @@ function drawViz(data) {
         if(typeof row[i] == 'number') {
           concatRow[i] = concatRow[i] + row[i];
         }
-        else {
+        else if (typeof row[i] == 'string'){
           concatRow[i] = concatRow[i] + ', '+ row[i];
         }
       }
