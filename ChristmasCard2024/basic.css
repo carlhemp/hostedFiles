@@ -107,11 +107,11 @@ body{
   animation-iteration-count: infinite;
 }
 
-.page1 #page1, .page2 #page2, .page3 #page3, .page4 #page4 {
+/*.page1 #page1, .page2 #page2, .page3 #page3, .page4 #page4 {
 	display: block;
 	padding: 1rem;
 	margin: 0;
-}
+}*/
 
 .flipbook-viewport .page img{
 	-webkit-touch-callout: none;
